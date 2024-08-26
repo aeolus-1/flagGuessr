@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 667" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 0 0 L 1000 0 L 1000 666.71875 L 0 666.71875 Z M 0 0 "/>
+</clipPath>
+<clipPath id="clip2">
+  <path d="M 416 0 L 584 0 L 584 666.71875 L 416 666.71875 Z M 416 0 "/>
+</clipPath>
+</defs>
+<g id="surface530">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(99.998474%,99.998474%,99.998474%);fill-opacity:1;" d="M 0 666.667969 L 0 0 L 1000 0 L 1000 666.667969 Z M 0 666.667969 "/>
+</g>
+<g clip-path="url(#clip2)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:166.666667;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(90.979004%,6.666565%,17.64679%);stroke-opacity:1;stroke-miterlimit:4;" d="M 500 0 L 500 666.667969 "/>
+</g>
+<path style="fill:none;stroke-width:166.666667;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(90.979004%,6.666565%,17.64679%);stroke-opacity:1;stroke-miterlimit:4;" d="M 0 333.332031 L 1000 333.332031 "/>
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(97.645569%,86.665344%,8.627319%);fill-opacity:1;" d="M 250 388.890625 L 277.777344 361.109375 L 527.777344 361.109375 L 527.777344 305.554688 L 277.777344 305.554688 L 250 277.777344 Z M 250 388.890625 "/>
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(97.645569%,86.665344%,8.627319%);fill-opacity:1;" d="M 444.445312 83.332031 L 472.222656 111.109375 L 472.222656 361.109375 L 527.777344 361.109375 L 527.777344 111.109375 L 555.554688 83.332031 Z M 444.445312 83.332031 "/>
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(97.645569%,86.665344%,8.627319%);fill-opacity:1;" d="M 555.554688 583.332031 L 527.777344 555.554688 L 527.777344 305.554688 L 472.222656 305.554688 L 472.222656 555.554688 L 444.445312 583.332031 Z M 555.554688 583.332031 "/>
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(97.645569%,86.665344%,8.627319%);fill-opacity:1;" d="M 750 277.777344 L 722.222656 305.554688 L 472.222656 305.554688 L 472.222656 361.109375 L 722.222656 361.109375 L 750 388.890625 Z M 750 277.777344 "/>
+</g>
+</svg>

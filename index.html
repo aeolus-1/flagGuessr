@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gussr</title>
+    <script src="src/globe.gl"></script>
+    <style>
+      #flag {
+        max-width: 300px;
+        min-width: 300px;
+      }
+      .sec {
+        display: inline-block;
+      }
+      .center {
+        text-align: center;
+      }
+      .shadow {
+        box-shadow: 0px 0px 8px 8px #00000017
+      }
+      .bottom-text {
+        position: absolute;
+        align-content: center;
+        transform: translate(50%);
+        right: 50%;
+        bottom: 5px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font: 16px Arial;
+      }
+      .autocomplete {
+        /*the container must be positioned relative:*/
+        position: relative;
+        display: inline-block;
+      }
+      input {
+        border: 1px solid transparent;
+        background-color: #f1f1f1;
+        padding: 10px;
+        font-size: 16px;
+      }
+      input[type="text"] {
+        background-color: #f1f1f1;
+        width: 100%;
+      }
+      input[type="submit"] {
+        background-color: DodgerBlue;
+        color: #fff;
+      }
+      .autocomplete-items {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+      }
+      .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+      }
+      .autocomplete-items div:hover {
+        /*when hovering an item:*/
+        background-color: #e9e9e9;
+      }
+      .autocomplete-active {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+        <div> completed <span id="completed"></span></div>
+        <div class="sec" id="flagInput">
+        <div id="flag"><img id="flagImg" class="shadow" src="/flags/australia.svg" /></div>
+        <div id="input">
+            <!--this is all shamelessly stolen off of https://www.w3schools.com/howto/howto_js_autocomplete.asp-->
+            <form id="guessInput" autocomplete="off" action="#">
+            <div class="autocomplete" style="width: 300px">
+                <input
+                id="myInput"
+                type="text"
+                name="myCountry"
+                placeholder="Country"
+                />
+            </div>
+            <input id="flagSubmit" type="submit" />
+            </form>
+        </div>
+        </div>
+        <div class="sec" id="globeViz"></div>
+        <div class="bottom-text">this design and data (flags, country stats) all shamlessly stolen off <a href="https://jollywatt.github.io/flag-game">https://jollywatt.github.io/flag-game</a>
+            
+        </div>
+    </div>
+
+    
+    <script>
+      const globe = Globe({ animateIn: false })
+        .width(300)
+        .height(300)
+        .showAtmosphere(0)
+        .globeImageUrl("earth-day.jpg")
+        .pointAltitude("size")
+        .pointColor("color")
+        .backgroundColor("#fff")(document.getElementById("globeViz"));
+    </script>
+
+    <script src="autocomplete.js"></script>
+    <script type="module" src="index.js"></script>
+    
+  </body>
+</html>
