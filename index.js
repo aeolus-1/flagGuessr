@@ -49,7 +49,7 @@ function setCountry(name) {
       { lat: con.coords[0], lng: con.coords[1], altitude: 2.5 },
       250
     );
-    document.getElementById("flagImg").src = `/flags/${con.name}.svg`;
+    document.getElementById("flagImg").src = `./flags/${con.name}.svg`;
     document.getElementById("completed").textContent = `${countryList.length-remainingCountries.length}/${countryList.length}`
   }
 
