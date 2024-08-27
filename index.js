@@ -69,8 +69,11 @@ document.getElementById("resetProgress").onclick = restart
 
 window.onload = () => {
     let localStorageRemainingCountries = localStorage.getItem("remainingCountries")
-    if (localStorageRemainingCountries) {
+    console.log(localStorageRemainingCountries)
+    if (localStorageRemainingCountries!=null) {
         remainingCountries = JSON.parse(localStorageRemainingCountries)
+    } else {
+        remainingCountries = undefined
     }
 
 
