@@ -84,8 +84,13 @@
         <div> completed <span id="completed"></span><br><a id="resetProgress" style="color: red; text-decoration: underline red">Reset Progress</a></div>
         <div class="sec" id="flagInput">
         <div id="flag">
-          <img id="flagImg1" class="shadow flag" src="./flags/micronesia.svg" />
-          <img id="flagImg2" class="shadow flag" style="display:none;" src="./flags/micronesia.svg" />
+
+          <!-- 
+            Im sure there's a better way to preload images, and it's probably be a few degrees of magnitude easier than what im currently doing
+            but i couldn't be fucked
+          -->
+          <img id="flagImg1" class="shadow flag" src="./flags/Afghanistan.svg" />
+          <img id="flagImg2" class="shadow flag" style="display:none;" src="./flags/Afghanistan.svg" />
         </div>
         <div id="input">
             <!--this is all shamelessly stolen off of https://www.w3schools.com/howto/howto_js_autocomplete.asp-->
@@ -110,6 +115,7 @@
 
     
     <script>
+      // uses this https://globe.gl/
       const globe = Globe({ animateIn: false })
         .width(300)
         .height(300)
