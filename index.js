@@ -20,8 +20,8 @@ function sanitse(name) {
 }
 
 
-function restart() {
-    remainingCountries = [...countryList]
+function restart(newCountryList=false) {
+    remainingCountries = newCountryList.constructor==Array?newCountryList:[...countryList]
     selectRandom()
     
 }
@@ -38,8 +38,15 @@ function makeGuess(name) {
                 break
             }
         }
+        localStorage.setItem("remainingCountries", JSON.stringify(remainingCountries))
+        if (remainingCountries.length>0) {
+            selectRandom()
+        } else {
+            alert("you win :)")
+            restart()
+        }
 
-        selectRandom()
+
     }
 }
 function setCountry(name) {
@@ -53,6 +60,19 @@ function setCountry(name) {
     document.getElementById("completed").textContent = `${countryList.length-remainingCountries.length}/${countryList.length}`
   }
 
+
+
+
+document.getElementById("resetProgress").onclick = restart
+
+
+
 window.onload = () => {
-    restart()
+    let localStorageRemainingCountries = localStorage.getItem("remainingCountries")
+    if (localStorageRemainingCountries) {
+        remainingCountries = JSON.parse(localStorageRemainingCountries)
+    }
+
+
+    restart(remainingCountries=remainingCountries)
 };
