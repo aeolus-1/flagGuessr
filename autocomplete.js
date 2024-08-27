@@ -71,12 +71,15 @@ function autocomplete(inp, arr) {
       } else if (e.keyCode == 13) {
         /*If the ENTER key is pressed, prevent the form from being submitted,*/
         e.preventDefault();
-        if (currentFocus > -1||true) {
+        if (currentFocus > -1) {
+          //inp.value = arr.filter((a)=>{return clean(a).substr(0, inp.value.length)==clean(inp.value)})[0]
+          if (x) x[currentFocus].click();
 
-          inp.value = arr.filter((a)=>{return clean(a).substr(0, inp.value.length)==clean(inp.value)})[0]
           
-          document.getElementById("flagSubmit").click()
+        } else {
+          if (x) x[0].click();
         }
+        document.getElementById("flagSubmit").click()
       }
     });
     function addActive(x) {
