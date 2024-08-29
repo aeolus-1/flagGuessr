@@ -16,12 +16,12 @@ const countryList = countryData.map((a) => {
   return a.name;
 });
 
-autocomplete(document.getElementById("myInput"), countryList);
 
 var remainingCountries = [],
     wrongGuesses = {},
     currentCountry = undefined,
     hasPreloaded = false
+
 
 
 guessInput.onsubmit = (a)=>{
@@ -43,6 +43,8 @@ function restart(newCountryList=false, newWrongGuesses=false) {
         return wg
     })()
     console.log(newWrongGuesses,wrongGuesses)
+
+    autocomplete(document.getElementById("myInput"), remainingCountries);
 
     hasPreloaded = false
     document.getElementById("completed").textContent = `0/${countryList.length}`
@@ -95,6 +97,7 @@ function makeGuess(name) {
                 break
             }
         }
+        autocomplete(document.getElementById("myInput"), remainingCountries);
         localStorage.setItem("remainingCountries", JSON.stringify(remainingCountries))
         if (remainingCountries.length>0) {
             nextCountry()
