@@ -26,6 +26,9 @@
         right: 50%;
         bottom: 5px;
       }
+      .header {
+        margin-bottom: 25px;
+      }
       * {
         box-sizing: border-box;
       }
@@ -81,7 +84,11 @@
   </head>
   <body>
     <div class="center">
-        <div> completed <span id="completed"></span><br><a id="resetProgress" style="color: red; text-decoration: underline red">Reset Progress</a></div>
+        <div class="header"> 
+          completed <span id="completed"></span><br>
+          incorrect guesses <span id="wrong"></span><br>
+          <a id="resetProgress" style="color: red; text-decoration: underline red">Reset Progress</a>
+        </div>
         <div class="sec" id="flagInput">
         <div id="flag">
 

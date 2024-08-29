@@ -19,6 +19,7 @@ const countryList = countryData.map((a) => {
 autocomplete(document.getElementById("myInput"), countryList);
 
 var remainingCountries = [],
+    wrongGuesses = {},
     currentCountry = undefined,
     hasPreloaded = false
 
@@ -34,9 +35,20 @@ function sanitse(name) {
 }
 
 
-function restart(newCountryList=false) {
+function restart(newCountryList=false, newWrongGuesses=false) {
     remainingCountries = newCountryList.constructor==Array?newCountryList:[...countryList]
+    wrongGuesses = newWrongGuesses.constructor==Object?newWrongGuesses:(()=>{
+        let wg = {}
+        remainingCountries.map((a)=>{wg[a]=0;return a})
+        return wg
+    })()
+    console.log(newWrongGuesses,wrongGuesses)
+
     hasPreloaded = false
+    document.getElementById("completed").textContent = `0/${countryList.length}`
+    document.getElementById("wrong").textContent = `${0}/${countryList.length}`
+
+    updateWrongs()
     shuffleRemaining()
     nextCountry()
     
@@ -92,7 +104,23 @@ function makeGuess(name) {
         }
 
 
+    } else {
+        wrongGuesses[currentCountry] = 1
+        updateWrongs()
+        
     }
+}
+function updateWrongs() {
+    let values = Object.keys(wrongGuesses).map(function(key){
+        return wrongGuesses[key];
+    }),
+    wrongs = values.reduce((accumulator, currentValue) => accumulator + currentValue)
+    document.getElementById("wrong").textContent = `${wrongs}/${countryList.length}`
+
+    localStorage.setItem("wrongGuesses", JSON.stringify(wrongGuesses))
+
+    console.log(wrongs)
+    return wrongs
 }
 function setCountry(name) {
     console.log(name)
@@ -128,6 +156,7 @@ function showImg(src) {
 
 document.getElementById("resetProgress").onclick = ()=>{
     localStorage.removeItem("remainingCountries")
+    if (!confirm("reset progress?")) return 0 
     restart()
 
 }
@@ -142,7 +171,15 @@ window.onload = () => {
     } else {
         remainingCountries = undefined
     }
+
+    let localWrongGuesses = localStorage.getItem("wrongGuesses")
+    console.log(localWrongGuesses)
+    if (localWrongGuesses!=null) {
+        wrongGuesses = JSON.parse(localWrongGuesses)
+    } else {
+        wrongGuesses = undefined
+    }
     
 
-    restart(remainingCountries=remainingCountries)
+    restart(remainingCountries=remainingCountries, wrongGuesses=wrongGuesses)
 };
